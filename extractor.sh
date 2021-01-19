@@ -5,5 +5,5 @@ netstat > netstat.txt
 
 for f in $AUTHFILES
 do
-	cat $f > $f + '.txt'
+	cat $f >> ssh.txt
 done
