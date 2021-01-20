@@ -83,6 +83,6 @@ mv cronjobs.txt  ./artifacts
 
 cp $AUTHFILES ./artifacts
 cp $KERNFILES ./artifacts
-cp $SYSFILES./artifacts
+cp $SYSFILES ./artifacts
 
 fi
