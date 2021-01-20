@@ -97,6 +97,6 @@ for f in $SYSFILES
 do
 	cat $f >> syslog.txt
 done
-mv ksyslog.txt ./artifacts
+mv syslog.txt ./artifacts
 
 fi
