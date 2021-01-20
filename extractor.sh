@@ -8,6 +8,8 @@ AUTHFILES=/var/log/auth.lo*
 KERNFILES=/var/log/kern.lo*
 SYSFILES=/var/log/syslog*
 
+sudo ss -tulpan > sstulpan.txt
+sudo ps faux > psaux.txt
 sudo dpkg -V > dpkgVerify.txt
 sudo iptables -S > ipTablesRules.txt
 ip addr show > ipaddr.txt
