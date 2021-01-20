@@ -1,4 +1,9 @@
 #!/bin/bash
+
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+else
 AUTHFILES=/var/log/auth.lo*
 KERNFILES=/var/log/kern.lo*
 SYSFILES=/var/log/syslog*
@@ -44,3 +49,4 @@ do
 	cat $f >> syslog.txt
 done
 
+fi
