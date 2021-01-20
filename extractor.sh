@@ -4,9 +4,9 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 else
-AUTHFILES=/var/log/auth.lo*
-KERNFILES=/var/log/kern.lo*
-SYSFILES=/var/log/syslog*
+AUTHFILES=/var/log/auth.*
+KERNFILES=/var/log/kern.*
+SYSFILES=/var/log/syslog.*
 mkdir artifacts
 
 sudo ss -tulpan > sstulpan.txt
@@ -81,22 +81,8 @@ do
 done
 mv cronjobs.txt  ./artifacts
 
-for f in $AUTHFILES
-do
-	cat $f >> authlog.txt
-done
-mv authlog.txt  ./artifacts
-
-for f in $KERNFILES
-do
-	cat $f >> kernlog.txt
-done
-mv kernlog.txt  ./artifacts
-
-for f in $SYSFILES
-do
-	cat $f >> syslog.txt
-done
-mv syslog.txt ./artifacts
+cp $AUTHFILES ./artifacts
+cp $KERNFILES ./artifacts
+cp $SYSFILES./artifacts
 
 fi
