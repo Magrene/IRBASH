@@ -1,7 +1,10 @@
 #!/bin/bash
 AUTHFILES=/var/log/auth.lo*
 KERNFILES=/var/log/kern.lo*
+SYSFILES=/var/log/syslog*
 
+sudo dpkg -V > dpkgVerify.txt
+sudo iptables -S > ipTablesRules.txt
 ip addr show > ipaddr.txt
 ip link show > iplink.txt
 sudo ss -tulw > sstulw.txt
@@ -28,12 +31,16 @@ done
 
 for f in $AUTHFILES
 do
-	cat $f >> ssh.txt
+	cat $f >> authlog.txt
 done
 
 for f in $KERNFILES
 do
-	cat $f >> kern.txt
+	cat $f >> kernlog.txt
 done
 
+for f in $SYSFILES
+do
+	cat $f >> syslog.txt
+done
 
