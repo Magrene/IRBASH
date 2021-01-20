@@ -11,7 +11,12 @@ ps aux > psaux.txt
 cat /etc/group > group.txt
 sudo cat /etc/sudoers > sudoers.txt
 history > history.txt
-
+ls /usr/lib/systemd/system > usrsystemd.txt
+ls /etc/systemd/system > etcsystemd.txt
+for user in $(cut -f1 -d: /etc/passwd); 
+do 
+	crontab -u $user -l >> crobjobs.txt 
+done
 
 for f in $AUTHFILES
 do
